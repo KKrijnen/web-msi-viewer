@@ -2,4 +2,8 @@ Browser-based MSI data viewer implemented in Rust and WebAssembly. Supports loca
 
 https://kkrijnen.github.io/web-msi-viewer/
 
-Currently only .imzml files with the flags <accession="IMS:1000031" name="processed"\> and <accession="MS:1000128" name="profile spectrum"/> are functional.
+Only .imzML files with the following metadata flags are supported:
+
+    <accession="IMS:1000031" name="processed"/>
+
+    <accession="MS:1000128" name="profile spectrum"/>
