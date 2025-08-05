@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <script src="https://cdn.plot.ly/plotly-3.1.0-rc.0.min.js"></script>
-    <title>Web MSI reader</title>
+    <title>Web MSI Viewer</title>
 
 <style>
 :root {
@@ -249,14 +249,14 @@ body.theme-dark {
 }
 
 </style>
-<link rel="modulepreload" href="/web-msi-viewer/web_msi_reader-395cd1cf6a53d641.js" crossorigin="anonymous" integrity="sha384-YzcqDLpRB2yq+JO5s3nb50RXeQnsO6VDCrDPHyvrkE34x+SPOzPq8LFCR3EN/u/l"><link rel="preload" href="/web-msi-viewer/web_msi_reader-395cd1cf6a53d641_bg.wasm" crossorigin="anonymous" integrity="sha384-qCZnegBX0yaJ95vhN1H/Zyr5/0m5uniTafVErUJHChyhH/rQAKtdxNdJPaTyDqRp" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="/web-msi-viewer/web_msi_reader-40cc98925a091d31.js" crossorigin="anonymous" integrity="sha384-Oyx3gAQN7M5jLqTX/vns+XkNbPfAwWiJNS2pys8LRc8/nmx5rU+Q3Ru4fjXVBPtU"><link rel="preload" href="/web-msi-viewer/web_msi_reader-40cc98925a091d31_bg.wasm" crossorigin="anonymous" integrity="sha384-JjUSU2PkZLY0lQbMjeqzuI3vxmZWRDT+xoKrTDmPnTlB61Rq64qE/u6xwa7itMaf" as="fetch" type="application/wasm"></head>
 
 <body class="theme-light">
     <main id="app"></main>
 
 <script type="module">
-import init, * as bindings from '/web-msi-viewer/web_msi_reader-395cd1cf6a53d641.js';
-const wasm = await init({ module_or_path: '/web-msi-viewer/web_msi_reader-395cd1cf6a53d641_bg.wasm' });
+import init, * as bindings from '/web-msi-viewer/web_msi_reader-40cc98925a091d31.js';
+const wasm = await init({ module_or_path: '/web-msi-viewer/web_msi_reader-40cc98925a091d31_bg.wasm' });
 
 
 window.wasmBindings = bindings;
