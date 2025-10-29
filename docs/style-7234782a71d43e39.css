@@ -1,0 +1,538 @@
+:root {
+  --color-bg:          #FFFFFF; 
+  --color-surface:     #F9F9FB; 
+  --color-surface-2:   #EAEAED; 
+  --color-border:      #D4D4D8; 
+
+  --color-text:        #15141A;
+  --color-text-muted:  #8F8F9D;
+  --color-text-inv:    #ffffff;
+
+  --color-primary:     #2564eb46;
+  --color-primary-hover: #1e4db7;
+  --color-secondary:   #7c3aed;
+  --color-secondary-hover: #5b21b6;
+
+  --color-success:     #16a34a;
+  --color-warning:     #d97706;
+  --color-danger:      #dc2626;
+  --color-info:        #0284c7;
+
+  --color-row-hover:   #B4B4B7;
+  --color-accent:      #e11d48;
+  --color-toolbar-active: #c4c4cf;
+  font-size: clamp(9px, 1.0vw, 18px);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+input,
+select,
+textarea {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-right: 1px solid var(--color-border);
+    height: 100%;
+    position: relative;
+    background: var(--color-surface)
+}
+.left-panel-toggle {
+    position: absolute;
+    top: 0;                            
+    right: 0;                          
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1em 1em;
+}
+
+.left-panel-content{
+    margin-top: 2.5rem;
+    flex: 1;
+    overflow-y: scroll;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+table {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+ul.dash-list {
+    list-style: none;     
+    margin: 0;            
+    padding-left: 0;      
+}
+
+ul.dash-list li {
+    position: relative;
+    padding-left: 1em;   
+}
+
+ul.dash-list li::before {
+    content: "-";
+    position: absolute;
+    left: 0;              
+}
+
+.plot-container {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.plot-container .modebar {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+.plot-container .modebar-group,
+.plot-container .modebar-btn {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+}
+
+.dropdown-item {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--color-row-hover);
+    outline: none;
+}
+
+.topbar {
+    display: flex;
+    gap: 1rem;
+    background-color: var(--color-surface-2);
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--color-border);
+    font-family: sans-serif;
+    font-size: 14px;
+    user-select: none;
+    z-index: 1000;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-label {
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.hidden-input {
+    display: none;
+}
+
+.left-panel-sections {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.roi-section-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.roi-list {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    width: 100%;
+    gap: 0;
+}
+
+.roi-row {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    height: 1.5rem;
+    position: relative;
+}
+
+.roi-color-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    background: none;
+    box-sizing: border-box;
+}
+
+.roi-color-input::-webkit-color-swatch-wrapper {
+    padding: 0;
+    margin: 0;
+    border-radius: 0px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.roi-color-input::-webkit-color-swatch {
+    border: none;
+    border-radius: 0px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.roi-color-input::-moz-color-swatch {
+    border: none;
+    border-radius: 0px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.roi-name {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0;
+    font-size: 1rem;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--color-text);
+    max-width: 20ch;
+}
+
+.roi-name.hidden {
+    color: #888;            /* greyed out */
+}
+
+.roi-name-input {
+    font-size: 1rem;
+    flex: 1;
+    border: 1px solid var(--color-border);
+}
+
+.roi-dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.roi-dropdown {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-85%);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    font-size: 0.8rem;
+    min-width: 100px;
+    z-index: 10;
+}
+
+.peak-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    table-layout: fixed;
+    border: 1px solid var(--color-border);
+    text-align: left;
+    background: var(--color-surface);
+}
+
+.peak-table th{
+    border: 1px solid var(--color-border);
+    padding: 0.4rem;
+    text-align: left;
+    max-width: 8ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    background: var(--color-surface-2);
+}
+.peak-table td {
+    border: 1px solid var(--color-border);
+    padding: 0.4rem;
+    text-align: left;
+    max-width: 8ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.peak-table tr {
+    cursor: pointer;
+    background-color: var(--color-suface);
+}
+
+.peak-table tr.active {
+    background-color: var(--color-surface-2);
+}
+
+.peak-table tr:hover {
+    background-color: var(--color-row-hover);
+}
+
+.peak-table td:nth-child(n+6),
+.peak-table th:nth-child(n+6) {
+    display: none; /* hide everything after column 5 */
+}
+
+.indicator{
+    font-size: 0.6rem;
+}
+
+.footer{
+    text-align: left;
+    padding: 0rem 1rem 2rem 1rem;
+    font-size: 0.85rem;
+    color: #666;
+    border-top: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+.right-panel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.image-plot{
+    flex: 66; 
+    border-bottom: 1px solid var(--color-border);
+}
+.spectrum-plot{
+    flex: 33
+}
+
+.plot-toolbar {
+    display: inline-flex;
+    border-radius: 8px;
+    width: fit-content;
+    overflow: hidden;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-2);
+}
+
+
+.plot-toolbar-button {
+    width: 1.3rem;
+    height: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0;
+    background: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.plot-toolbar-button:hover {
+    background: var(--color-border);
+}
+
+.plot-toolbar-button.active {
+    background: var(--color-toolbar-active);
+}
+
+.icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: var(--color-text);
+}
+
+.peak-preview {
+    display: block;
+    width: auto;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    margin-left: auto;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  :root {
+    font-size: clamp(11px, 3vw, 16px);
+  }
+
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  .app-shell {
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+  }
+
+  .left-panel {
+    width: 100% !important;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    flex: 0 0 auto !important;
+    height: auto !important;
+  }
+
+  .left-panel-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .left-panel-content {
+    margin-top: 3.5rem;
+    max-height: 50vh;
+    padding: 0.75rem;
+  }
+
+  .right-panel {
+    height: auto;
+    min-height: 0;
+  }
+
+  .image-plot {
+    flex: none;
+    min-height: 280px;
+  }
+
+  .spectrum-plot {
+    flex: none;
+    min-height: 220px;
+    border-bottom: none;
+  }
+
+  .plot-toolbar {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .plot-toolbar-button {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .roi-row {
+    font-size: 1.15rem;
+    gap: 0.4rem;
+  }
+
+  .roi-name {
+    max-width: 100%;
+  }
+
+  .peak-table {
+    font-size: 0.75rem;
+  }
+
+  .peak-table td,
+  .peak-table th {
+    max-width: none;
+    white-space: normal;
+  }
+
+  .dropdown {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .left-panel-content {
+    max-height: 45vh;
+    padding: 0.6rem;
+  }
+
+  .image-plot {
+    min-height: 220px;
+  }
+
+  .spectrum-plot {
+    min-height: 180px;
+  }
+
+  .plot-toolbar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .topbar {
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
