@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="google-site-verification" content="38MWB12czELaesfTNZdPw0FUVhAIirFmslB1QcIqWfA" />
+    <meta name="description" content="A browser-based Mass Spectrometry Imaging (MSI) viewer, implemented in Rust and WebAssembly. All computations and data handling are performed locally within the browser. Uploaded .imzML and .ibd files never leave the user's computer."/>
+    <script src="https://cdn.plot.ly/plotly-3.1.0-rc.0.min.js"></script>
+    <title>Web MSI Viewer</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    
+    
+    <meta name="theme-color" content="#121212" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/web-msi-viewer/style-d55c04303b9e5585.css" integrity="sha384-vkBTMUeUoG1eFyFqfODlKMtdg+KIq7NoPygapqiSOPoYCpx68S/j8hMI/vxbjMoX"/>
+<link rel="modulepreload" href="/web-msi-viewer/web_msi_reader-2556f4242b7e5e67.js" crossorigin="anonymous" integrity="sha384-OkPq5MmiebFH70oMTQ+C5+IE5r93Cq7mvJwtjFCkVVMqjza6qjXBmvf6S3x53vHh"><link rel="preload" href="/web-msi-viewer/web_msi_reader-2556f4242b7e5e67_bg.wasm" crossorigin="anonymous" integrity="sha384-nFGzmuH0QknQ57g/+dQ8p66w7Q+A5RRby2duNJ0/ZNK87HOTSMK6LJkYCCfT3yxq" as="fetch" type="application/wasm"></head>
+
+<body class="theme-light">
+    <main id="app"></main>
+
+<script type="module">
+import init, * as bindings from '/web-msi-viewer/web_msi_reader-2556f4242b7e5e67.js';
+const wasm = await init({ module_or_path: '/web-msi-viewer/web_msi_reader-2556f4242b7e5e67_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>
